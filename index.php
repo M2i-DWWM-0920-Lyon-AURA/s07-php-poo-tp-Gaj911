@@ -10,6 +10,11 @@
 // Active le chargement automatique des classes grâce à Composer
 require 'vendor/autoload.php';
 
+use pages\todo; 
+use App\Model\Todolist;
+
+
+
 // Crée un nouveau routeur
 $router = new AltoRouter();
 
@@ -30,6 +35,11 @@ $router->map('GET', '/', function() {
 $router->map('GET', '/todos', function() {
     require __DIR__ . '/pages/todo.php';
 });
+
+$router->map('POST', '/todos/new', function() {
+    require __DIR__ . '/templates/create.php';
+});
+
 
 
 // ================================================================
